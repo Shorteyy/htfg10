@@ -65,3 +65,14 @@ explore: taxi_rides {
     relationship: many_to_one
   }
 }
+view: sql_runner_query_emplyoyees_datasights {
+  derived_table: {
+    sql: select *
+      From CompanyEmployees
+      join SubDepartments on SubDepartments.ID_1 = CompanyEmployees. SubDepartment
+      join Companies on Subdepartments.ID = Companies.ID
+      join People on People.ID = CompanyEmployees.ID
+      where Name = 'DataSight'
+       ;;
+      }
+}
